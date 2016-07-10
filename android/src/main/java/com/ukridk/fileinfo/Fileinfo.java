@@ -5,6 +5,10 @@ import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.WritableMap;
 import java.net.URI;
 import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 public class Fileinfo extends ReactContextBaseJavaModule  {
 
@@ -15,6 +19,13 @@ public class Fileinfo extends ReactContextBaseJavaModule  {
     @Override
     public String getName() {
         return "ReactNativeFileinfo";
+    }
+
+    private String toIsoString(Date date) {
+        TimeZone tz = TimeZone.getTimeZone("UTC");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        df.setTimeZone(tz);
+        return df.format(date);
     }
 
     @ReactMethod
@@ -32,9 +43,10 @@ public class Fileinfo extends ReactContextBaseJavaModule  {
             infoMap.putString("path", file.getPath());
             infoMap.putBoolean("isAbsolute", file.isAbsolute());
             infoMap.putBoolean("isDirectory", file.isDirectory());
-            infomap.putBoolean("isHidden", file.isHidden());
-            infoMap.putInt("lastModified", file.lastModified());
-            infoMap.putInt("length", file.length());
+            infoMap.putBoolean("isHidden", file.isHidden());
+            infoMap.putString("lastModified",
+                              this.toIsoString(new Date(file.lastModified())));
+            infoMap.putString("length", String.valueOf(file.length()));
 
             promise.resolve(infoMap);
         }
