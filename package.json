@@ -5,10 +5,10 @@
   "main": "index.js",
   "author": {
     "name": "Ukrid Kuldiloke",
-    "email": "ukrid.kuldiloke@gmail.com",
+    "email": "ukrid.kuldiloke@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/ukuldiloke/react-native-fileinfo.git",
+    "url": "git://github.com/ukuldiloke/react-native-fileinfo.git"
   }
 }
