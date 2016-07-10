@@ -1,5 +1,10 @@
 {
-  "name": "fileinfo",
+  "name": "react-native-fileinfo",
   "version": "0.0.1",
-  "keywords": "react-native"
+  "keywords": "react-native",
+  "main": "index.js",
+  "author": {
+    "name": "Ukrid Kuldiloke",
+    "email": "ukrid.kuldiloke@gmail.com",
+  }
 }
